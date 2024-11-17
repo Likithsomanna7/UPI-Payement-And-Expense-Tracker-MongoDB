@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insufficient Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #ff4d4d;
+            font-size: 24px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Insufficient Balance</h1>
+        <p>Your balance does not have enough balance to complete this transaction. Please try again later or add amount to your account.</p>
+        <button class="button" onclick="window.location.reload()">Try Again</button>
+    </div>
+</body>
+</html>

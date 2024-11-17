@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link rel="stylesheet" href="../styles/signup.css">
+</head>
+<body>
+    <div class="container">
+     
+        <div class="form-container">
+            <div class="welcome-container">
+                <h2>Hey, There!</h2>
+                <p>Enter your personal details and make secured payments <br>Don't worry, your information is safe with us. Let's get started!</p>
+            </div>
+        </div>
+    
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form method="post" action ='/pay/signup/submit'>
+                <input type="text" placeholder="Account Holder's Name" name="Accountholder" required>
+                <input type="email" placeholder="Email" name="Email" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <input type="text" placeholder="Account Number" name="Accountnumber" required>
+                <input type="text" placeholder="Confirm Account Number"  required>
+                <input type="tel" placeholder="Phone Number" name="Phonenumber" required>
+                <input class="no" type="number" placeholder="Initial Deposit" name="amount" required>
+                <button type="submit">SIGN UP</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

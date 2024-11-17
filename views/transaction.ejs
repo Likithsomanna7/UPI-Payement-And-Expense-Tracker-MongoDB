@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Details</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: lightblue;
+            margin: 0;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            background-color: rgb(155, 248, 186);
+            border: 4px solid rgb(4, 4, 4);
+            box-sizing: border-box;
+        }
+        th{
+            text-decoration: underline;
+        }
+        th, td {
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            background-color: rgb(155, 248, 186);
+            border-right: 1px solid rgb(4, 4, 4);
+        }
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+        hr {
+            border-top: 3px solid rgb(4, 0, 20);
+            margin: 10px 0;
+        }
+        .no-history {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(4, 0, 20);
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        table::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <% if (user && user.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEMS</th>
+                    <th>AMOUNT</th>
+                    <th>TRANSACTION TIME</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% user.forEach(transaction => { %>
+                    <tr>
+                        <td><%= transaction.autofill %></td>
+                        <td><%= transaction.amount %></td>
+                        <td><%= transaction.date.getFullYear() %>-<%= transaction.date.getMonth()+1 %>-<%= transaction.date.getDate() %> <%= transaction.date.getHours() %>:<%= transaction.date.getMinutes() %>:<%= transaction.date.getSeconds() %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <div class="no-history">No transaction history</div>
+    <% } %>
+</body>
+</html>

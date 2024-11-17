@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link rel="stylesheet" href="/styles/signin.css">
+ 
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Sign In</h2>
+            <div class="social-buttons">
+                <button class="social-btn facebook">f</button>
+                <button class="social-btn google">G</button>
+                <button class="social-btn linkedin">in</button>
+            </div>
+            <form method="post" action="/pay/signin/submit">
+                <input type="email" placeholder="Email" name="Email" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <a href="https://support.google.com/accounts/answer/7682439?hl=en">Forgot your password?</a>
+                <button type="submit">SIGN IN</button>
+            </form>
+        </div>
+        <div class="welcome-container">
+            <h2>Hey, There!</h2>
+            <p>Thank you for using our payement method <br> <span>your trust is our  priority</span><br></p>
+            <button type="button"  onclick="window.location.href='/pay/signup'">SIGN UP</button>
+        </div>
+    </div>
+</body>
+</html>

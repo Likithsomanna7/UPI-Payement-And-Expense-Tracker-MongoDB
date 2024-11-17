@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+}
+
+.outerdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    background-color:lightblue;
+}
+.container {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    border: 1px solid #cce7ff; /* Light blue border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+.form-group select,
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+.form-group input[type="number"]::-webkit-outer-spin-button,
+.form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.generate-otp {
+    font-size: 0.9em;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 5px;
+}
+.generate-otp:hover {
+    color: #0056b3;
+}
+.or-scan {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #333;
+}
+.scanner-symbol {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.scanner-symbol:hover {
+    color: #0056b3;
+}
+.pay-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+.pay-button:hover
+ {
+    background-color: #45a049;
+}
+textarea
+
+textarea::placeholder
+{
+    padding: 8.5px;
+
+}
+.otp-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #073f14;
+    color: #b2e2bd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.scanner-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    margin-top: 10px;        
+}
+
+.scanner-symbol {
+    font-size: xx-large;    
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logout-link {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    background-color: rgb(32, 102, 102);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: small;
+    color:#fff;
+}
+
+.logout-link i {
+    font-size: 19px; 
+}
+
+.logout-link:hover {
+    background-color: #66ccff;
+}
