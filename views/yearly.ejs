@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Transactions</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="background-color: #000000;">
+    <h1 style="text-align: center;color: white; text-decoration: underline;  ">Yearly Transactions</h1>
+    
+    <div>
+        <canvas id="myChart" style="background-color: #000000; height: 700px;"></canvas>
+    </div>
+
+    <script>
+      const Users = <%- JSON.stringify(User)%>;  
+
+      const set = new Set();  
+      const set1 = new Set();  
+      const arr = [];         
+      Users.forEach(item => {
+          const date = new Date(item.date);  
+          const month = date.getMonth() + 1;
+          set1.add(month);
+          if(month==1)
+          {
+          set.add("January"); 
+         
+          }
+          else if(month==2)
+          {
+            set.add("February"); 
+          }
+          else if(month==3)
+          {
+            set.add("March"); 
+          }
+          else if(month==4)
+          {
+            set.add("April"); 
+          }
+          else if(month==5)
+          {
+            set.add("May"); 
+          }
+          else if(month==6)
+          {
+            set.add("June"); 
+          }
+          else if(month==7)
+          {
+            set.add("July"); 
+          }
+          else if(month==8)
+          {
+            set.add("August"); 
+          }
+          else if(month==9)
+          {
+            set.add("September"); 
+          }
+          else if(month==10)
+          {
+            set.add("October"); 
+          }
+          else if(month==11)
+          {
+            set.add("November"); 
+          }
+          else
+          {
+            set.add("December");
+          }
+
+      });
+
+    
+      set1.forEach(month => {
+          let sum = 0;
+          Users.forEach(user => {
+              const date = new Date(user.date);  
+              if (date.getMonth() + 1 === month) {
+                  sum += user.amount;  
+              }
+          });
+          arr.push(sum);  
+      });
+
+      const colors = [
+          'rgba(255, 99, 132, 0.6)', 
+          'rgba(54, 162, 235, 0.6)', 
+          'rgba(255, 206, 86, 0.6)', 
+          'rgba(75, 192, 192, 0.6)', 
+          'rgba(153, 102, 255, 0.6)', 
+          'rgba(255, 159, 64, 0.6)', 
+          'rgba(231, 76, 60, 0.6)', 
+          'rgba(52, 152, 219, 0.6)', 
+          'rgba(241, 196, 15, 0.6)', 
+          'rgba(46, 204, 113, 0.6)'  
+      ];
+
+      const barColors = Array.from(set).map((month, index) => {
+          return colors[index % colors.length];
+      });
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: Array.from(set),  
+              datasets: [{
+                  label: 'Total Amount',
+                  data: arr, 
+                  borderWidth: 1,
+                  backgroundColor: barColors, 
+                  borderColor: colors,
+              }]
+          },
+          options: {
+            maintainAspectRatio: false,
+              layout: {
+                  padding: {
+                      top: 20,
+                      right: 20,
+                      bottom: 20,
+                      left: 20
+                  }
+              },
+              responsive: true,
+              
+              backgroundColor: '#f4f4f4',
+
+              scales: {
+                  x: {
+                     
+                      ticks: {
+                          color: 'white', 
+                      },
+                      title: {
+                          color: 'white', 
+                      }
+                  },
+                  y: {
+                      grid: {
+                          color: 'rgba(255, 255, 255, 0.2)', 
+                      },
+                      ticks: {
+                          color: 'white', 
+                      },
+                      title: {
+                          color: 'white',
+                      }
+                  }
+              },
+
+              elements: {
+                  line: {
+                      borderColor: 'white' 
+                  },
+                  arc: {
+                      borderColor: 'white'
+                  }
+              },
+              
+              plugins: {
+                  legend: {
+                      labels: {
+                          color: 'white' 
+                      }
+                  }
+              },
+          }
+      });
+    </script>
+</body>
+</html>

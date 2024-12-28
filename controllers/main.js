@@ -11,11 +11,15 @@ async function monthlyhandler(req,res)
     const decoded = jwt.verify(uid, "1234");
     const id = decoded._id;
     const user = await model.findOne({ _id: id });
-    res.render("monthly",{user:user.transactions});
+    res.render("monthly",{User:user.transactions});
 }
-function yearlyhandler(req,res)
+async function yearlyhandler(req,res)
 {
-    res.render("yearly");
+    const uid = req.cookies.uid;
+    const decoded = jwt.verify(uid, "1234");
+    const id = decoded._id;
+    const user = await model.findOne({ _id: id });
+    res.render("yearly",{User:user.transactions});
 }
 async function balancehandler(req,res)
 {

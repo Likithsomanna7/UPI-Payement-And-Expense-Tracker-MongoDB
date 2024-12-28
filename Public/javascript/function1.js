@@ -4,9 +4,7 @@
         const otpMessage = document.getElementById("otpMessage");
 
         otpMessage.innerText = `Your OTP is ${otp}`;
-        otpMessage.style.opacity = "1"; // Show the OTP message
-
-        // Hide the OTP message after 5 seconds
+        otpMessage.style.opacity = "1"; 
         setTimeout(() => {
             otpMessage.style.opacity = "0";
         }, 5000);

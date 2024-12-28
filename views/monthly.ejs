@@ -3,36 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Monthly Transactions</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
-    <div>
-  <canvas id="myChart"></canvas>
-</div>
+<body style="background-color: #000000;">
+    <h1 style="text-align: center;color: white; text-decoration: underline; ">Monthly Transactions</h1>
+    
+    <div style="height: auto; width: auto;">
+        <canvas id="myChart" style="background-color:black; width:600px; height:700px; "></canvas>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const Users = <%- JSON.stringify(User)%>;  
 
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+      const set = new Set();   
+      const date2=new Date();  
+      const arr=[];       
+      Users.forEach(item => {
+          const date = new Date(item.date);  
+          const month = date.getMonth() + 1;
+         if(month==date2.getMonth())
+         {
+            set.add(item.autofill)
+         }
         }
-      }
-    }
-  });
-</script>
+         );
+
+    
+      set.forEach(element => {
+          let sum = 0;
+          Users.forEach(user => {
+              const date = new Date(user.date);  
+              if (date.getMonth() + 1 === date2.getMonth()&&element==user.autofill) {
+                  sum += user.amount;  
+              }
+          });
+          arr.push(sum);  
+      });
+
+      const colors = [
+          'rgba(255, 99, 132, 0.6)', 
+          'rgba(54, 162, 235, 0.6)', 
+          'rgba(255, 206, 86, 0.6)', 
+          'rgba(75, 192, 192, 0.6)', 
+          'rgba(153, 102, 255, 0.6)', 
+          'rgba(255, 159, 64, 0.6)', 
+          'rgba(231, 76, 60, 0.6)', 
+          'rgba(52, 152, 219, 0.6)', 
+          'rgba(241, 196, 15, 0.6)', 
+          'rgba(46, 204, 113, 0.6)'  
+      ];
+
+      const barColors = Array.from(set).map((month, index) => {
+          return colors[index % colors.length];
+      });
+
+      const ctx = document.getElementById('myChart').getContext('2d');
+      new Chart(ctx, {
+          type: 'pie',
+          data: {
+              labels: Array.from(set),  
+              datasets: [{
+                  label: 'Total Amount',
+                  data: arr, 
+                  borderWidth:1,
+                  backgroundColor: barColors, 
+                  borderColor: colors,
+              }]
+          },
+          options: {
+            maintainAspectRatio:false,
+              layout: {
+                  padding: {
+                      top: 20,
+                      right: 20,
+                      bottom: 20,
+                      left: 20
+                  }
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              backgroundColor: '#f4f4f4',
+
+             
+
+              elements: {
+                  line: {
+                      borderColor: 'white' 
+                  },
+                  arc: {
+                      borderColor: 'white'
+                  }
+              },
+              
+              plugins: {
+                  legend: {
+                      labels: {
+                          color: 'white' 
+                      }
+                  }
+              },
+          }
+      });
+    </script>
 </body>
 </html>
