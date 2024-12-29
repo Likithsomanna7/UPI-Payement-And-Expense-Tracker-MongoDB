@@ -21,10 +21,11 @@
       const arr=[];       
       Users.forEach(item => {
           const date = new Date(item.date);  
-          const month = date.getMonth() + 1;
-         if(month==date2.getMonth())
+          const month = date.getMonth();
+         if(month+1==date2.getMonth()+1)
          {
             set.add(item.autofill)
+            
          }
         }
          );
@@ -34,7 +35,7 @@
           let sum = 0;
           Users.forEach(user => {
               const date = new Date(user.date);  
-              if (date.getMonth() + 1 === date2.getMonth()&&element==user.autofill) {
+              if (date.getMonth() + 1 === date2.getMonth()+1 && element==user.autofill) {
                   sum += user.amount;  
               }
           });
