@@ -18,74 +18,91 @@
 
       const set = new Set();  
       const set1 = new Set();  
-      const arr = [];         
+      const arr = [];    
+      const date2=new Date();     
       Users.forEach(item => {
           const date = new Date(item.date);  
-          const month = date.getMonth() + 1;
-          set1.add(month);
-          if(month==1)
+          let month =date.getMonth() + 1;
+          if(month==1 && month && date2.getFullYear()==date.getFullYear())
           {
           set.add("January"); 
+          set1.add(month);
          
           }
-          else if(month==2)
+          else if(month==2 && date2.getFullYear()==date.getFullYear())
           {
             set.add("February"); 
+            set1.add(month);
           }
-          else if(month==3)
+          else if(month==3 && date2.getFullYear()==date.getFullYear() )
           {
             set.add("March"); 
+            set1.add(month);
           }
-          else if(month==4)
+          else if(month==4 && date2.getFullYear()==date.getFullYear())
           {
             set.add("April"); 
+            set1.add(month);
           }
-          else if(month==5)
+          else if(month==5 && date2.getFullYear()==date.getFullYear())
           {
             set.add("May"); 
+            set1.add(month);
           }
-          else if(month==6)
+          else if(month==6 && date2.getFullYear()==date.getFullYear())
           {
             set.add("June"); 
+            set1.add(month);
           }
-          else if(month==7)
+          else if(month==7 && date2.getFullYear()==date.getFullYear())
           {
             set.add("July"); 
+            set1.add(month);
           }
-          else if(month==8)
+          else if(month==8 && date2.getFullYear()==date.getFullYear())
           {
             set.add("August"); 
+            set1.add(month);
           }
-          else if(month==9)
+          else if(month==9 && date2.getFullYear()==date.getFullYear())
           {
             set.add("September"); 
+            set1.add(month);
           }
-          else if(month==10)
+          else if(month==10 && date2.getFullYear()==date.getFullYear())
           {
             set.add("October"); 
+            set1.add(month);
           }
-          else if(month==11)
+          else if(month==11 && date2.getFullYear()==date.getFullYear())
           {
             set.add("November"); 
+            set1.add(month);
           }
-          else
+          else if(month==12 && date2.getFullYear()==date.getFullYear())
           {
             set.add("December");
+            set1.add(month);
           }
 
       });
 
-    
       set1.forEach(month => {
+        console.log(month)
           let sum = 0;
           Users.forEach(user => {
               const date = new Date(user.date);  
-              if (date.getMonth() + 1 === month) {
+              if (date.getMonth() + 1 === month &&date2.getFullYear()==date.getFullYear()) {
                   sum += user.amount;  
+                 
               }
+    
           });
-          arr.push(sum);  
+          
+          arr.push(sum); 
+
       });
+      console.log(arr)
 
       const colors = [
           'rgba(255, 99, 132, 0.6)', 
