@@ -9,13 +9,14 @@
 <body style="background-color: #000000;">
     <h1 style="text-align: center;color: white; text-decoration: underline;  ">Yearly Transactions</h1>
     
-    <div>
+    <div id="id2">
         <canvas id="myChart" style="background-color: #000000; height: 700px;"></canvas>
     </div>
 
     <script>
       const Users = <%- JSON.stringify(User)%>;  
-
+      if(Users[0].amount)
+    {
       const set = new Set();  
       const set1 = new Set();  
       const arr = [];    
@@ -189,6 +190,14 @@
               },
           }
       });
+    }
+    else
+    {
+      document.getElementById("id2").innerHTML = "No Data Found";  
+        document.getElementById("id2").style.color="white";
+        document.getElementById("id2").style.textAlign="center";
+        document.getElementById("id2").style.marginTop="300px"
+    }
     </script>
 </body>
 </html>

@@ -9,40 +9,40 @@
 <body style="background-color: #000000;">
     <h1 style="text-align: center;color: white; text-decoration: underline; ">Monthly Transactions</h1>
     
-    <div style="height: auto; width: auto;">
+    <div id="id1" style="height: auto; width: auto;">
         <canvas id="myChart" style="background-color:black; width:600px; height:700px; "></canvas>
     </div>
 
     <script>
-      const Users = <%- JSON.stringify(User)%>;  
-
-      const set = new Set();   
-      const date2=new Date();  
-      const arr=[];       
-      Users.forEach(item => {
-          const date = new Date(item.date);  
-          const month = date.getMonth();
-         if(month+1==date2.getMonth()+1)
-         {
+    const Users = <%- JSON.stringify(User)%>;  
+    if(Users[0].amount)
+    {
+        const set = new Set();   
+        const date2=new Date();  
+        const arr=[];       
+        Users.forEach(item => {
+        const date = new Date(item.date);  
+        const month = date.getMonth();
+        if(month+1==date2.getMonth()+1)
+        {
             set.add(item.autofill)
             
-         }
         }
-         );
-
-    
-      set.forEach(element => {
-          let sum = 0;
-          Users.forEach(user => {
-              const date = new Date(user.date);  
-              if (date.getMonth() + 1 === date2.getMonth()+1 && element==user.autofill) {
-                  sum += user.amount;  
-              }
-          });
-          arr.push(sum);  
-      });
-
-      const colors = [
+        }
+        );
+        set.forEach(element => {
+        let sum = 0;
+        Users.forEach(user => {
+        const date = new Date(user.date);  
+        if (date.getMonth() + 1 === date2.getMonth()+1 && element==user.autofill)
+        {
+            sum += user.amount;  
+        }
+        });
+        arr.push(sum);  
+        });
+const colors = 
+        [
           'rgba(255, 99, 132, 0.6)', 
           'rgba(54, 162, 235, 0.6)', 
           'rgba(255, 206, 86, 0.6)', 
@@ -106,6 +106,15 @@
               },
           }
       });
+    }
+    else
+    {
+        document.getElementById("id1").innerHTML = "No Data Found";  
+        document.getElementById("id1").style.color="white";
+        document.getElementById("id1").style.textAlign="center";
+        document.getElementById("id1").style.marginTop="300px"
+
+      }
     </script>
 </body>
 </html>
