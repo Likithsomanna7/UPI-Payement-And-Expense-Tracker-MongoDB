@@ -8,9 +8,6 @@ const cookieparser =require('cookie-parser');
 const { authhandler } = require('./middleware/auth.js');
 
 const app =express();
-app.get("/", (req, res) => {
-    res.send("HELLO")
-});
 
 app.set("view engine",'ejs')
 app.use(cookieparser());
