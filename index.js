@@ -9,7 +9,7 @@ const { authhandler } = require('./middleware/auth.js');
 
 const app =express();
 app.get("/", (req, res) => {
-    res.redirect("/pay/signin");
+    res.send("HELLO")
 });
 
 app.set("view engine",'ejs')
