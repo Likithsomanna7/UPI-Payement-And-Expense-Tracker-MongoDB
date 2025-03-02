@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine",'ejs')
 app.use(cookieparser());
 app.use(express.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(express.static(path.join(__dirname, 'Public'))); 
 connected();
 app.get('/',(req,res)=>{res.render("signin");})
 // app.use('/pay',router);
