@@ -16,7 +16,7 @@ app.use(cookieparser());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public'))); 
 connected();
-app.get('/abc',(req,res)=>{res.render("signin");})
+app.get('/',(req,res)=>{res.render("signin");})
 // app.use('/pay',router);
 // app.use('/pay/main',authhandler,router2)
 
