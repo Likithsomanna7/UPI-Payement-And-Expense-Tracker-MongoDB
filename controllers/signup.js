@@ -1,5 +1,5 @@
 const { use } = require('bcrypt/promises');
-const model =require('../model/schema ');
+const model =require('../model/schema.js');
 const bcrypt =require('bcrypt');
 function signuphandler2(req,res)
 {

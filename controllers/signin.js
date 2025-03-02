@@ -1,4 +1,4 @@
-const model = require('../model/schema ');
+const model = require('../model/schema.js');
 const bcrypt = require('bcrypt');
 const { setuser } = require('../Service/auth');
 

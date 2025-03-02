@@ -1,4 +1,4 @@
-const model = require("../model/schema ")
+const model = require("../model/schema.js")
 const jwt = require("jsonwebtoken")
 function logouthandler(req,res)
 {
