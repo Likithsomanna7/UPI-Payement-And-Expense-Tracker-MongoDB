@@ -16,9 +16,10 @@ app.use(cookieparser());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'Public'))); 
 connected();
-app.get('/',(req,res)=>{res.render("signin");})
-// app.use('/pay',router);
-// app.use('/pay/main',authhandler,router2)
+app.use('/pay',router);
+app.use('/pay/main',authhandler,router2)
+app.get('/',(req,res)=>{res.redirect("/pay/signin");})
+
 
 app.listen(3000, () => {
     console.log("Successfully running on port 3000");
