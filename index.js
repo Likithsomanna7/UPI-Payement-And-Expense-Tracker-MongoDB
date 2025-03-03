@@ -24,3 +24,4 @@ app.get('/',(req,res)=>{res.redirect("/pay/signin");})
 app.listen(3000, () => {
     console.log("Successfully running on port 3000");
 });
+
