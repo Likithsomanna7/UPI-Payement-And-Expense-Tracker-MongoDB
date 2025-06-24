@@ -1,7 +1,38 @@
-UPI Payment and Expense Tracker is a web application designed to simplify financial management. It allows users to track UPI payments, monitor expenses, and analyze spending patterns.
-Built with Node.js, Express, and MongoDB, the app features user authentication, secure payment tracking, and real-time expense categorization. Users can view detailed reports, set budgets, 
-and receive alerts for overspending. The frontend uses EJS for dynamic rendering, while the backend ensures seamless data handling and storage in MongoDB Atlas.
-This project aims to provide a user-friendly, secure, and efficient solution for managing personal finances, making it easier to stay on top of payments and expenses
+# 💸 UPI Payment and Expense Tracker
 
+A secure and user-friendly full-stack application that helps users manage their UPI transactions and track monthly expenses. Built using **Node.js**, **Express**, **MongoDB**, and **JWT authentication**, the app provides a real-time dashboard with detailed insights into spending habits using **Chart.js**.
 
-Live Working Link : https://payx-blush.vercel.app/pay/home/
+---
+
+## 🚀 Features
+
+- ✅ **User Authentication**
+  - Secure sign-up and login using JWT tokens.
+  - Passwords encrypted with bcrypt for enhanced security.
+
+- 💰 **Transaction Management**
+  - Add, view, and delete transactions (income/expense).
+  - Categorize and label transactions.
+
+- 📊 **Expense Analysis Dashboard**
+  - Visual analytics of monthly and total expenses using Chart.js.
+  - Insights into spending patterns by category and date.
+
+- 🧾 **UPI Payment Tracker**
+  - Simulates UPI-based transactions with transaction history.
+  - Displays balance and transaction summaries.
+
+---
+
+## 🛠️ Tech Stack
+
+| Tech                   | Description                        |
+|------------------------|------------------------------------|
+| **Frontend**           | HTML, CSS, JavaScript              |
+| **Backend**            | Node.js, Express.js                |
+| **Database**           |  MongoDB (Mongoose ORM)            |
+| **Authentication**     | JWT, bcrypt                        |
+| **Data Visualization** | Chart.js                           |
+| **Templating Engine**  | EJS                                |
+
+Live link :https://payx-blush.vercel.app/pay/home/
